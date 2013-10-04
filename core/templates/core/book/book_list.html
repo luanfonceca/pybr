@@ -1,0 +1,27 @@
+
+
+{% extends 'core/book/base.html' %}
+
+{% load i18n %}
+
+{% block filename %}
+  /Users/luanfonsecadefarias/PyBR2013/pybr/core/templates/core/book/book_list.html
+{% endblock %}
+
+{% block header-link %}
+  <a href='{% url "core_book_list" %}'>
+    {% trans "Book List" %}
+  </a>
+{% endblock %}
+
+{% block header-description %}
+  {% trans "A page representing a list of objects." %}
+{% endblock %}
+
+{% block content %}
+  <h2>
+    {% trans "Books" %}
+  </h2>
+  {% include 'core/book/object_table_list.html' %}
+  {% include 'core/book/pagination.html' %}
+{% endblock %}

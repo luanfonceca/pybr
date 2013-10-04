@@ -1,0 +1,27 @@
+
+
+{% extends 'core/publishinghouse/base.html' %}
+
+{% load i18n %}
+
+{% block filename %}
+  /Users/luanfonsecadefarias/PyBR2013/pybr/core/templates/core/publishinghouse/publishinghouse_list.html
+{% endblock %}
+
+{% block header-link %}
+  <a href='{% url "core_publishinghouse_list" %}'>
+    {% trans "PublishingHouse List" %}
+  </a>
+{% endblock %}
+
+{% block header-description %}
+  {% trans "A page representing a list of objects." %}
+{% endblock %}
+
+{% block content %}
+  <h2>
+    {% trans "PublishingHouses" %}
+  </h2>
+  {% include 'core/publishinghouse/object_table_list.html' %}
+  {% include 'core/publishinghouse/pagination.html' %}
+{% endblock %}

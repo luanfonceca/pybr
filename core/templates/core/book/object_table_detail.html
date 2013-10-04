@@ -1,0 +1,60 @@
+
+
+{% load tags %}
+{% load i18n %}
+
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        {% trans "Field" %}
+      </th>
+      <th>
+        {% trans "Value" %}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        id
+      </td>
+      <td>
+        <a href='{{ object.get_absolute_url }}'>
+          {{ object.id|stringformat:".3d" }}
+        </a>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        author
+      </td>
+      <td>{{ object.author }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        created at
+      </td>
+      <td>{{ object.created_at }}</td>
+    </tr>
+    
+    <tr>
+      <td>
+        updated at
+      </td>
+      <td>{{ object.updated_at }}</td>
+    </tr>
+    
+    {% for field in object.dynamic_fields %}
+      <tr>
+        <td>
+          {{ field.verbose_name|default:field.name }}
+        </td>
+        <td>{{ object|get_attr:field.name }}</td>
+      </tr>
+    {% endfor %}
+    
+  </tbody>
+</table>

@@ -1,0 +1,27 @@
+
+
+{% extends 'core/author/base.html' %}
+
+{% load i18n %}
+
+{% block filename %}
+  /Users/luanfonsecadefarias/PyBR2013/pybr/core/templates/core/author/author_list.html
+{% endblock %}
+
+{% block header-link %}
+  <a href='{% url "core_author_list" %}'>
+    {% trans "Author List" %}
+  </a>
+{% endblock %}
+
+{% block header-description %}
+  {% trans "A page representing a list of objects." %}
+{% endblock %}
+
+{% block content %}
+  <h2>
+    {% trans "Authors" %}
+  </h2>
+  {% include 'core/author/object_table_list.html' %}
+  {% include 'core/author/pagination.html' %}
+{% endblock %}

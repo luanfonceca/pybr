@@ -1,0 +1,48 @@
+
+
+{% extends 'core/book/base.html' %}
+
+{% load i18n %}
+
+{% block filename %}
+  /Users/luanfonsecadefarias/PyBR2013/pybr/core/templates/core/book/book_archive.html
+{% endblock %}
+{% block title %}
+  {% trans "Book Archive Index" %}
+{% endblock %}
+{% block breadcrumbs %}
+  <ul class='breadcrumb'>
+    <li>
+      <a href='{% url "core_book_archive_index" %}'>
+        {% trans "Archive Index" %}
+      </a>
+    </li>
+  </ul>
+{% endblock %}
+{% block header-link %}
+  <a href='{% url "core_book_archive_index" %}'>
+    {% trans "Book Archive Index" %}
+  </a>
+{% endblock %}
+{% block header-description %}
+  {% trans "A top-level index page showing the latest objects, by date." %}
+{% endblock %}
+{% block content %}
+  <h2>
+    By Year
+  </h2>
+  <ul class='nav nav-tabs nav-stacked'>
+    {% for date in date_list %}
+      <li>
+        <a href='{% url "core_book_year_archive" year=date.year %}'>
+          {{ date.year }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+  <h2>
+    {% trans "Recent Books" %}
+  </h2>
+  {% include 'core/book/object_table_list.html' %}
+  {% include 'core/book/pagination.html' %}
+{% endblock %}

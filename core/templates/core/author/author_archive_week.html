@@ -1,0 +1,31 @@
+
+
+{% extends 'core/author/base.html' %}
+
+{% load i18n %}
+
+{% block filename %}
+  /Users/luanfonsecadefarias/PyBR2013/pybr/core/templates/core/author/author_archive_week.html
+{% endblock %}
+
+{% block title %}
+  {% trans "Author Week Archive" %}
+{% endblock %}
+
+{% block header-link %}
+  {% trans "Author Week Archive" %}
+{% endblock %}
+
+{% block header-description %}
+  {% trans "A weekly archive page showing all objects in a given week." %}
+{% endblock %}
+
+{% block content %}
+  <h2>
+    {% blocktrans %}
+      Authors created during the week beginning on {{ week }}
+    {% endblocktrans %}
+  </h2>
+  {% include 'core/author/object_table_list.html' %}
+  {% include 'core/author/pagination.html' %}
+{% endblock %}

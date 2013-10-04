@@ -1,0 +1,11 @@
+Django==1.5
+-e hg+ssh://hg@bitbucket.org/multmeio/south#egg=South-dev
+django-extensions==0.9
+-e git+git@github.com:multmeio/django-hstore.git#egg=django_hstore-dev
+-e git+git@github.com:multmeio/django-hstore-flattenfields.git#egg=django_hstore_flattenfields-dev
+django-orm-extensions==3.0b3
+ipdb==0.7
+ipython==0.11
+model-mommy==1.0
+psycopg2==2.4.6
+wsgiref==0.1.2

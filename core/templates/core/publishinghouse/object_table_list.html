@@ -1,0 +1,47 @@
+
+
+{% load i18n %}
+
+<p>
+  {% trans "Click on the primary key value to access the individual PublishingHouse's page." %}
+</p>
+<table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>
+        id
+      </th>
+      
+        <th>
+          name
+        </th>
+      
+        <th>
+          created_at
+        </th>
+      
+        <th>
+          updated_at
+        </th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for object in object_list %}
+      <tr>
+        <td>
+          <a href='{{ object.get_absolute_url }}'>
+            {{ object.id|stringformat:".3d" }}
+          </a>
+        </td>
+        
+          <td>{{ object.name }}</td>
+        
+          <td>{{ object.created_at }}</td>
+        
+          <td>{{ object.updated_at }}</td>
+        
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

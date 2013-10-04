@@ -1,0 +1,31 @@
+
+
+{% extends 'core/publishinghouse/base.html' %}
+
+{% load i18n %}
+
+{% block filename %}
+  /Users/luanfonsecadefarias/PyBR2013/pybr/core/templates/core/publishinghouse/publishinghouse_archive_week.html
+{% endblock %}
+
+{% block title %}
+  {% trans "PublishingHouse Week Archive" %}
+{% endblock %}
+
+{% block header-link %}
+  {% trans "PublishingHouse Week Archive" %}
+{% endblock %}
+
+{% block header-description %}
+  {% trans "A weekly archive page showing all objects in a given week." %}
+{% endblock %}
+
+{% block content %}
+  <h2>
+    {% blocktrans %}
+      PublishingHouses created during the week beginning on {{ week }}
+    {% endblocktrans %}
+  </h2>
+  {% include 'core/publishinghouse/object_table_list.html' %}
+  {% include 'core/publishinghouse/pagination.html' %}
+{% endblock %}

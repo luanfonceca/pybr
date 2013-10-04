@@ -1,0 +1,41 @@
+
+
+{% extends 'core/publishinghouse/base.html' %}
+
+{% load i18n %}
+
+{% block filename %}
+  /Users/luanfonsecadefarias/PyBR2013/pybr/core/templates/core/publishinghouse/publishinghouse_confirm_delete.html
+{% endblock %}
+
+{% block title %}
+  {% trans "PublishingHouse Confirm Delete" %}
+{% endblock %}
+
+{% block header-link %}
+  <a href='{% url "core_publishinghouse_delete" pk=object.pk %}'>
+    {% trans "PublishingHouse Confirm Delete" %}
+  </a>
+{% endblock %}
+
+{% block header-description %}
+  {% trans "A view that displays a confirmation page (on GET) and deletes an existing object (on POST)." %}
+{% endblock %}
+
+{% block content %}
+  <h2>
+    {% trans "Delete this PublishingHouse?" %}
+  </h2>
+  <br />
+  {% include 'core/publishinghouse/object_table_detail.html' %}
+  <form action='' charset='utf-8' method='post'>
+    <fieldset>
+      {% csrf_token %}
+      <div class='form-actions'>
+        <button class='btn btn-danger' type='submit'>
+          {% trans "Delete" %}
+        </button>
+      </div>
+    </fieldset>
+  </form>
+{% endblock %}

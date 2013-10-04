@@ -1,0 +1,57 @@
+
+
+{% extends 'core/publishinghouse/base.html' %}
+
+{% load i18n %}
+
+{% block filename %}
+  /Users/luanfonsecadefarias/PyBR2013/pybr/core/templates/core/publishinghouse/publishinghouse_archive_year.html
+{% endblock %}
+
+{% block breadcrumbs %}
+  <ul class='breadcrumb'>
+    <li>
+      <a href='{% url "core_publishinghouse_archive_index" %}'>
+        {% trans "Archive Index" %}
+      </a>
+      <span class='divider'>
+        /
+      </span>
+    </li>
+    <li>
+      <a href='{% url "core_publishinghouse_year_archive" year=year %}'>
+        {% trans "Year Archive" %}
+      </a>
+    </li>
+  </ul>
+{% endblock %}
+
+{% block header-link %}
+  <a href='{% url "core_publishinghouse_year_archive" year=year %}'>
+    {% trans "PublishingHouse Year Archive" %}
+  </a>
+{% endblock %}
+{% block header-description %}
+  {% trans "A yearly archive page showing all available months in a given year." %}
+{% endblock %}
+{% block content %}
+  <h2>
+    {% trans "By Month" %}
+  </h2>
+  <ul class='nav nav-tabs nav-stacked'>
+    {% for date in date_list %}
+      <li>
+        <a href='{% url "core_publishinghouse_month_archive" year=date.year month=date.month %}'>
+          {{ date|date:"M Y" }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+  <h2>
+    {% blocktrans %}
+      PublishingHouses created in the year {{ year }}
+    {% endblocktrans %}
+  </h2>
+  {% include 'core/publishinghouse/object_table_list.html' %}
+  {% include 'core/publishinghouse/pagination.html' %}
+{% endblock %}
